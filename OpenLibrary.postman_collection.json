@@ -1,0 +1,337 @@
+{
+	"info": {
+		"_postman_id": "efc4a0fe-1628-4fcd-b4d2-45b05b933381",
+		"name": "OpenLibrary",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33010329"
+	},
+	"item": [
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "getAllBook",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8090/openlibrary/v1/book"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllBookByAuthor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8090/openlibrary/v1/book/Ihsan Maulidin"
+					},
+					"response": []
+				},
+				{
+					"name": "insertBook",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\" : \"B2025001\",\r\n    \"isbn\"   : \"1-56619-909-3\",\r\n    \"title\" : \"How to Create Rest API\",\r\n    \"author\" : \"Ikhlas Rangga\",\r\n    \"publishedTime\" : \"2025-05-20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/openlibrary/v1/book/insert"
+					},
+					"response": []
+				},
+				{
+					"name": "updateBook",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\" : \"B2025001\",\r\n    \"isbn\"   : \"1-56619-909-3\",\r\n    \"title\" : \"How to Create Rest API\",\r\n    \"author\" : \"Ihsan Maulidin\",\r\n    \"publishedTime\" : \"2025-05-20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/openlibrary/v1/book/update"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Member",
+			"item": [
+				{
+					"name": "getAllActiveMember",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8090/openlibrary/v1/member/active"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllInactiveMember",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8090/openlibrary/v1/book/Ihsan Maulidin"
+					},
+					"response": []
+				},
+				{
+					"name": "insertMember",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"memberId\" : \"M2025001\",\r\n    \"name\" : \"Ikhlas Rangga\",\r\n    \"address\"   : \"Jakarta\",\r\n    \"dateofbirth\" : \"1997-05-20\",\r\n    \"isActive\" : \"true\",\r\n    \"validUntil\" : \"2025-05-20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/openlibrary/v1/member/insert"
+					},
+					"response": []
+				},
+				{
+					"name": "updateMember",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\" : \"B2025001\",\r\n    \"isbn\"   : \"1-56619-909-3\",\r\n    \"title\" : \"How to Create Rest API\",\r\n    \"author\" : \"Ihsan Maulidin\",\r\n    \"publishedTime\" : \"2025-05-20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/openlibrary/v1/member/update"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Loan",
+			"item": [
+				{
+					"name": "getAllLoanBook",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8090/openlibrary/v1/loan/bookOnLoan"
+					},
+					"response": []
+				},
+				{
+					"name": "getLoanBookByMember",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8090/openlibrary/v1/loan/M2025001"
+					},
+					"response": []
+				},
+				{
+					"name": "loan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\"  : \"B2025002\",\r\n    \"memberId\" : \"M2025001\",\r\n    \"startDate\" : \"2025-05-20\",\r\n    \"endDate\" : \"2025-05-21\",\r\n    \"loanDays\" : \"1\",\r\n    \"status\" : \"loan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/openlibrary/v1/loan"
+					},
+					"response": []
+				},
+				{
+					"name": "return",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\"  : \"B2025002\",\r\n    \"memberId\" : \"M2025001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/openlibrary/v1/loan/return"
+					},
+					"response": []
+				},
+				{
+					"name": "getAllLoanBook",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8090/openlibrary/v1/loan/bookOnLoan"
+					},
+					"response": []
+				},
+				{
+					"name": "getLoanBookByMember",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8090/openlibrary/v1/loan/M2025001"
+					},
+					"response": []
+				},
+				{
+					"name": "loan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\"  : \"B2025002\",\r\n    \"memberId\" : \"M2025001\",\r\n    \"startDate\" : \"2025-05-20\",\r\n    \"endDate\" : \"2025-05-21\",\r\n    \"loanDays\" : \"1\",\r\n    \"status\" : \"loan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/openlibrary/v1/loan"
+					},
+					"response": []
+				},
+				{
+					"name": "return",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\"  : \"B2025002\",\r\n    \"memberId\" : \"M2025001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8090/openlibrary/v1/loan/return"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
