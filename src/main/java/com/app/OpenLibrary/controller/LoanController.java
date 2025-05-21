@@ -1,8 +1,10 @@
 package com.app.OpenLibrary.controller;
 
-import com.app.OpenLibrary.model.Book;
+
+import com.app.OpenLibrary.model.Loan;
+import com.app.OpenLibrary.model.Member;
 import com.app.OpenLibrary.model.Response;
-import com.app.OpenLibrary.service.BookService;
+import com.app.OpenLibrary.service.LoanService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,47 +13,58 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value={"/openlibrary/v1/book"})
-public class BookController {
+@RequestMapping(value={"/openlibrary/v1/loan"})
+public class LoanController {
 
 
     @Autowired
-    BookService bookService;
+    LoanService loanService;
 
 
 
-    @PostMapping("/insert")
-    public ResponseEntity<Response> insert(@Valid  @RequestBody Book book){
+    @PostMapping()
+    public ResponseEntity<Response> loanBook(@Valid  @RequestBody Loan loan){
         Response response = new Response();
 
-        response = bookService.insertBookData(book);
+        response = loanService.loanBook(loan);
 
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
-    @PostMapping("/update")
-    public ResponseEntity<Response> update(@Valid @RequestBody Book book){
+    @PostMapping("/return")
+    public ResponseEntity<Response> returnBook(@Valid @RequestBody Loan loan){
         Response response = new Response();
+        String bookId = loan.getBookId();
+        String memberId = loan.getMemberId();
 
-        response = bookService.updateBookData(book);
+        response = loanService.returnBook(memberId,bookId);
 
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
-    @GetMapping
-    public ResponseEntity<Response> getAll(){
+    @GetMapping("/{memberId}")
+    public ResponseEntity<Response> getAllBookLoanBymemberId(@PathVariable String memberId){
         Response response = new Response();
 
-        response = bookService.getAllBookData();
+        response = loanService.getBookLoanByMember(memberId);
 
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
-    @GetMapping("/{author}")
-    public ResponseEntity<Response> getDataByAuthor(@PathVariable String author){
+    @GetMapping("/all")
+    public ResponseEntity<Response> getAllLoandata(){
         Response response = new Response();
 
-        response = bookService.getBookDataByAuthor(author);
+        response = loanService.getAllLoanData();
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    @GetMapping("/bookOnLoan")
+    public ResponseEntity<Response> bookOnLoan(){
+        Response response = new Response();
+
+        response = loanService.getAllBookOnLoan();
 
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }

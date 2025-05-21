@@ -44,8 +44,6 @@ public class BookRepository implements BookInterface {
                .addValue("author",author)
                .addValue("publishedTime",publishedTime);
 
-
-
        return jdbcTemplate.execute(sql,param, new InsertUpdateStetment());
     }
 
